@@ -1,0 +1,21 @@
+{
+  "name": "fastify-otel",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "erickwendel",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "engines": {
+    "node": "v20.15.1"
+  },
+  "dependencies": {
+    "fastify": "^4.28.1",
+    "knex": "^3.1.0",
+    "pg": "^8.12.0"
+  }
+}

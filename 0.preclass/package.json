@@ -1,0 +1,25 @@
+{
+  "name": "fastify-otel",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "erickwendel",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "engines": {
+    "node": "v20.15.1"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/instrumentation-http": "^0.52.1",
+    "@opentelemetry/instrumentation-knex": "^0.38.0",
+    "@opentelemetry/sdk-node": "^0.52.1",
+    "fastify": "^4.28.1",
+    "knex": "^3.1.0",
+    "pg": "^8.12.0"
+  }
+}

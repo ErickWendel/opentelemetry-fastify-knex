@@ -1,0 +1,9 @@
+
+
+npm i @opentelemetry/api@1.9.0
+
+npm i @opentelemetry/sdk-node@0.52.1
+
+npm i @opentelemetry/instrumentation-http@0.52.1
+
+npm i @opentelemetry/instrumentation-knex@0.38.0

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=ewacademy
+      - POSTGRES_USER=erickwendel
+      - POSTGRES_PASSWORD=erick
+      - TZ=America/Sao_Paulo
+      - PGTZ=America/Sao_Paulo
+    ports:
+      - "5432:5432"
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    ports:
+      - "8081:16686"  # Jaeger UI
+      - "14268"
+      - "14250"
+
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    container_name: otel-collector
+    command: ["--config=/etc/otel-collector-config.yml"]
+    volumes:
+      - ./otel-collector-config.yml:/etc/otel-collector-config.yml
+    ports:
+      - "1888:1888"   # pprof extension
+      - "13133:13133" # health_check extension
+      - "4317:4317"   # OTLP gRPC receiver
+      - "4318:4318"   # http gRPC receiver
+      - "55679:55679" # zpages extension
+    depends_on:
+      - jaeger
+    links:
+      - jaeger
